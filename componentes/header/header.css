@@ -39,3 +39,17 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3); /* Sombra verde */
 }
+
+
+@media (max-width: 768px) {
+    .header {
+      grid-template-columns: 1fr !important;
+      height: auto !important;
+      padding: 10px !important;
+    }
+  
+    .header .img-header {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }

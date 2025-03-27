@@ -7,3 +7,69 @@
 html {
     font-family: monospace;
 }
+
+/* Mobile First: Ajustes base para pantallas < 768px */
+@media (max-width: 768px) {
+    /* 1. Reset básico para móviles */
+    html, body {
+      width: 100% !important;
+      overflow-x: hidden !important; /* Evita scroll horizontal */
+      font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+  
+    /* 2. Contenedores principales */
+    .asistencia-container, .grados-container, .form-container, .cuadro-login {
+      width: 95% !important;
+      margin: 10px auto !important;
+      padding: 15px !important;
+    }
+  
+    /* 3. Header y títulos */
+    .header, .app-header {
+      height: auto !important;
+      padding: 15px !important;
+      grid-template-columns: 1fr !important;
+      text-align: center;
+    }
+  
+    .header h1, .app-title {
+      font-size: 1.5rem !important;
+    }
+  
+    /* 4. Tablas (convertirlas en scroll horizontal) */
+    .tabla-alumnos {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    /* 5. Formularios (login, registro) */
+    .cuadro-login {
+      width: 90% !important;
+      height: auto !important;
+      padding: 20px !important;
+      grid-template-rows: auto !important;
+    }
+  
+    .cuadro-login .logo {
+      margin: 0 auto 15px !important;
+    }
+  
+    .div-user, .div-pass {
+      width: 90% !important;
+      margin: 10px auto !important;
+    }
+  
+    /* 6. Botones */
+    .btn-guardar, .btn-registrar, .btn-volver, .btn-ingresar {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 10px 0 !important;
+    }
+  
+    /* 7. Ajustar posición del ícono de contraseña */
+    .toggle-password-btn {
+      right: 10% !important;
+      top: auto !important;
+    }
+  }

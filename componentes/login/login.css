@@ -184,3 +184,57 @@
 .cuadro-login .toggle-password-btn:hover {
     color: #007bff;
 }
+
+
+/* --- Versión móvil --- */
+@media (max-width: 768px) {
+    .div-login {
+      height: 100vh; /* Ocupa toda la pantalla */
+      padding: 0;
+    }
+  
+    /* Ajuste de imagen de fondo */
+    .div-login img {
+      object-fit: cover; /* Cubre todo el espacio sin deformarse */
+      height: 100%;
+    }
+  
+    /* Cuadro del login */
+    .cuadro-login {
+      width: 90% !important;
+      height: auto !important;
+      padding: 20px !important;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      grid-template-rows: auto auto auto auto auto; /* Filas ajustables */
+    }
+  
+    /* Logo más pequeño */
+    .cuadro-login .logo {
+      width: 80px !important;
+      height: 80px !important;
+      margin: 10px auto !important;
+    }
+  
+    /* Inputs */
+    .div-user, .div-pass {
+      width: 100% !important;
+      margin: 10px 0 !important;
+      padding: 12px !important;
+    }
+  
+    /* Botones en columna */
+    .btn-cuadro {
+      grid-template-columns: 1fr !important;
+      gap: 10px;
+    }
+  
+    /* Posición del ícono de contraseña */
+    .toggle-password-btn {
+      right: 10% !important;
+      top: auto !important;
+      left: auto !important;
+      transform: translateY(-50%);
+    }
+  }

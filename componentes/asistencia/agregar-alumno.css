@@ -245,3 +245,11 @@ body {
 .btn-reintentar:hover {
     background-color: #b71c1c;
 }
+
+
+@media (max-width: 768px) {
+    .tabla-alumnos th, .tabla-alumnos td {
+      padding: 8px !important;
+      font-size: 12px;
+    }
+  }
