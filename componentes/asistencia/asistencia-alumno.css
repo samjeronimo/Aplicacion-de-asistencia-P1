@@ -1,0 +1,75 @@
+/* Estilos para la tabla de alumnos */
+.contenedor-asistencia {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.asistencia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tabla-alumnos {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabla-alumnos th, .tabla-alumnos td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-alumnos th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.tabla-alumnos tr:hover {
+    background-color: #f9f9f9;
+}
+
+.estado-asistencia {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.btn-guardar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn-guardar:hover {
+    background-color: #45a049;
+}
+
+.btn-regresar {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info {
+    color: #666;
+    font-style: italic;
+}
+
+.error {
+    color: #d32f2f;
+}

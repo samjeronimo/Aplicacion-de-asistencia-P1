@@ -1,0 +1,194 @@
+/* Estilos generales */
+.grados-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+}
+
+/* Fondo con imagen */
+body {
+        background-image: url('https://img.freepik.com/fotos-premium/fondo-virtual-negocios-tecnologia-moderna_769134-102.jpg?semt=ais_hybrid');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    
+}
+
+/* Header styles */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    position: relative;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.app-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.app-logo:hover {
+    transform: scale(1.05);
+}
+
+.title-date-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.date-container {
+    margin-top: 10px;
+}
+
+.date-picker-container {
+    position: relative;
+    display: inline-block;
+}
+
+.date-picker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-date-display {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: center;
+}
+
+.custom-date-display:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* List styles */
+.div-lista {
+    padding: 25px;
+    background-color: rgba(248, 249, 250, 0.9);
+    min-height: 400px;
+    backdrop-filter: blur(5px);
+}
+
+.grado-item {
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grado-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grado-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.grado-contenido:hover {
+    background: linear-gradient(to right, #e9ecef, #ffffff);
+}
+
+.arrow {
+    font-size: 16px;
+    color: #3498db;
+    transition: transform 0.2s ease;
+}
+
+.grado-item .arrow[textContent="•"] {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.sub-lista {
+    padding: 10px 20px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.subgrado-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: linear-gradient(to right, #fff3cd, #ffe69b);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 500;
+    color: #856404;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.subgrado-btn:hover {
+    background: linear-gradient(to right, #ffe69b, #ffdb7b);
+    transform: translateX(5px);
+}
+
+.error, .error-msg {
+    color: #d32f2f;
+    padding: 12px;
+    background: #ffebee;
+    border-radius: 6px;
+    margin: 10px 0;
+    border-left: 4px solid #d32f2f;
+}

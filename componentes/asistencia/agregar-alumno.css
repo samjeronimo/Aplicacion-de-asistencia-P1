@@ -1,0 +1,247 @@
+/* Estilos generales */
+.asistencia-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Fondo de la página */
+body {
+    background-color: #f5f7fa;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Header */
+.asistencia-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #4a6fa5, #3a5a8a);
+    color: white;
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.icono-regresar {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.icono-regresar::before,
+.icono-regresar::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+}
+
+.icono-regresar::before {
+    width: 12px;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icono-regresar::after {
+    width: 6px;
+    height: 6px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    left: 0;
+    top: 50%;
+    margin-top: -4px;
+}
+
+/* Título */
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.asistencia-titulo {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.titulo-texto {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.titulo-grado {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Fecha */
+.fecha-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.fecha-icono {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+.fecha-icono::before,
+.fecha-icono::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+}
+
+.fecha-icono::before {
+    width: 14px;
+    height: 14px;
+    border: 1px solid white;
+    border-radius: 2px;
+    top: 0;
+    left: 0;
+}
+
+.fecha-icono::after {
+    width: 10px;
+    height: 1px;
+    top: 4px;
+    left: 2px;
+    box-shadow: 0 3px 0 white;
+}
+
+/* Lista de alumnos */
+.lista-alumnos {
+    padding: 20px;
+}
+
+.mensaje-carga,
+.info-msg {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+
+/* Tabla */
+.tabla-alumnos {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabla-alumnos th {
+    background-color: #4a6fa5;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.tabla-alumnos td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-alumnos tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.tabla-alumnos tr:hover {
+    background-color: #f0f5ff;
+}
+
+.estado-asistencia {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    width: 100%;
+}
+
+/* Botón guardar */
+.btn-guardar {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background-color: #3a5a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensajes de error */
+.error-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffebee;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.error-msg {
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.btn-reintentar {
+    padding: 8px 16px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reintentar:hover {
+    background-color: #b71c1c;
+}

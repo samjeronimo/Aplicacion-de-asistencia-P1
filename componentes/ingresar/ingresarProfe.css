@@ -1,0 +1,136 @@
+/* Contenedor de la página de ingreso */
+.div-registro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://img.freepik.com/vector-premium/fondo-vector-patrones-fisuras-regreso-escuela_153454-5902.jpg?w=360') no-repeat center;
+    background-size: cover;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor del formulario de registro */
+.form-container {
+    width: 450px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el formulario */
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título del formulario */
+.form-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Estilo para los labels */
+.form-container label {
+    display: block;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Estilo para los inputs */
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para inputs */
+}
+
+/* Efecto al hacer focus en los inputs */
+.input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px #28a745;
+    background-color: rgba(255, 255, 255, 0.2); /* Cambio de fondo al enfocar */
+}
+
+
+
+/* Estilo para los botones */
+.btn-registrar, .btn-volver {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo para el botón de registrar */
+.btn-registrar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-registrar:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Efecto de animación en hover */
+}
+
+/* Estilo para el botón de volver */
+.btn-volver {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-volver:hover {
+    background-color: #c82333;
+    transform: scale(1.05); /* Efecto de animación en hover */
+}
+
+.form-container .toggle-password-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    right: 11%;
+    left: 44rem;
+    top: 47.3rem;
+    transition: color 0.3s;
+
+}
+
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .input {
+        font-size: 1rem;
+    }
+
+    .btn-registrar, .btn-volver {
+        font-size: 1rem;
+    }
+}

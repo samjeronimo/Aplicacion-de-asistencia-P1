@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    height: 8rem;
+    padding: 0 3rem;
+    gap: 1.5rem;
+    
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    align-items: center;
+
+    background-color: #ffffff; /* Fondo limpio */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 10px;
+}
+
+.header .img-header {
+    width: 8rem;
+    height: 6rem;
+    margin: auto;
+    object-fit: contain;
+}
+
+.header h1 {
+    width: 100%;
+    max-width: 120rem;
+    height: 5rem;
+    margin: auto;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2C3E50;
+    background: #E8F5E9; /* Fondo verde claro */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3); /* Sombra verde */
+}
