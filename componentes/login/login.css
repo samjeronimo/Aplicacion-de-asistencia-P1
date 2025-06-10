@@ -121,7 +121,7 @@
 
 .cuadro-login .btn-cuadro {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 
     grid-row: 5/6;
@@ -129,7 +129,8 @@
 }
 
 .btn-cuadro .btn-ingresar,
-.btn-cuadro .btn-registrar {
+.btn-cuadro .btn-registrar,
+.btn-recuperar {
     width: 12rem;
     height: 4rem;
     font-size: 1.3rem;
@@ -146,13 +147,18 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.btn-cuadro ,.btn-recuperar {   
+    display: flex;
+    padding: 0 3px;
+}
+
 .btn-cuadro .btn-registrar {
     background: linear-gradient(135deg, #ffdd00, #ffaa00);
     color: #333;
 }
 
 .btn-cuadro .btn-ingresar {
-    background: linear-gradient(135deg, #28a745, #218838);
+    background: linear-gradient(135deg, #35cc58, #218838);
     color: white;
 }
 
@@ -163,7 +169,17 @@
 
 .btn-cuadro .btn-ingresar:hover {
     transform: scale(1.1);
-    background: linear-gradient(135deg, #218838, #1e7e34);
+    background: linear-gradient(135deg, #218637, #07581a);
+}
+
+.btn-cuadro .btn-recuperar {
+    background: linear-gradient(135deg, #272ae0, #001486);
+    color: white;
+}
+
+.btn-cuadro .btn-recuperar:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2e98df, #006274);
 }
 
 .cuadro-login .toggle-password-btn {
