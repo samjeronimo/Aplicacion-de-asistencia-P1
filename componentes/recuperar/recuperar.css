@@ -106,14 +106,15 @@
 .btn-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; /* Cambiado a 10px para mayor separación */
     margin-top: 20px;
 }
 
 /* Botones */
 .btn-send-code,
 .btn-submit,
-.btn-back {
+.btn-back,
+.btn-recover-password {
     width: 100%;
     padding: 12px;
     border: none;
@@ -124,6 +125,7 @@
     transition: all 0.3s ease;
 }
 
+/* Márgenes individuales para mayor separación si es necesario */
 .btn-send-code {
     background-color: #f39c12;
     color: white;
@@ -148,10 +150,29 @@
 .btn-back {
     background-color: #e74c3c;
     color: white;
+    margin-top: 10px; /* Separación adicional */
 }
 
 .btn-back:hover {
     background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn-recover-password {
+    background-color: #3498db;
+    color: white;
+    margin-top: 10px; /* Separación adicional */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.btn-recover-password:hover {
+    background-color: #2980b9; /* Color de fondo al pasar el mouse */
     transform: translateY(-2px);
 }
 
@@ -179,3 +200,4 @@
         margin-bottom: 20px;
     }
 }
+
