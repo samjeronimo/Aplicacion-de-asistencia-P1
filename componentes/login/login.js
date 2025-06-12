@@ -1,5 +1,6 @@
 import { cargarGrados } from "../grados/grados.js";
 import { cargarFormularioRegistro } from "../ingresar/ingresarProfe.js";
+import { cargarRecuperar } from "../recuperar/recuperar.js"; // Importar la función de recuperar.js
 
 function cargarLogin() {
 
@@ -56,6 +57,11 @@ function cargarLogin() {
     btn_ingresar.className = "btn-ingresar";
     btn_ingresar.textContent = "Ingresar"
     btn_cuadro.appendChild(btn_ingresar);
+
+    let btn_recuperar = document.createElement('button');
+    btn_recuperar.className = "btn-recuperar";
+    btn_recuperar.textContent = "Recuperar Contraseña"
+    btn_cuadro.appendChild(btn_recuperar);
 
     btn_ingresar.addEventListener("click", async () => {
         const email = usuario.value.trim();
@@ -116,12 +122,17 @@ function cargarLogin() {
     // Evento de registro
     btn_registrar.addEventListener('click', () => {
         cargarFormularioRegistro();  // Llama a la función para cargar el formulario de registro
-});
+    });
 
+    // Evento de recuperar contraseña
+    btn_recuperar.addEventListener('click', () => {
+        const DOM = document.querySelector('#root');
+        DOM.innerHTML = ""; // Limpiar el DOM
+        DOM.appendChild(cargarRecuperar()); // Llama a la función para cargar la vista de recuperación
+    });
 
     return login;
 
 }
 
-
-export {cargarLogin}
+export { cargarLogin }
