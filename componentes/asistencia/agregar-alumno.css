@@ -247,6 +247,8 @@ body {
 }
 
 
+
+
 @media (max-width: 768px) {
     .tabla-alumnos th, .tabla-alumnos td {
       padding: 8px !important;
