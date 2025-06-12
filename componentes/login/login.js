@@ -58,10 +58,10 @@ function cargarLogin() {
     btn_cuadro.appendChild(btn_ingresar);
 
     btn_ingresar.addEventListener("click", async () => {
-        const email = usuario.value.trim();
+        const nombre = usuario.value.trim();
         const passwordValue = password.value.trim();
     
-        if (!email || !passwordValue) {
+        if (!nombre || !passwordValue) {
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -72,7 +72,7 @@ function cargarLogin() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ email, password: passwordValue })
+                body: JSON.stringify({ nombre, password: passwordValue })
             });
     
             const data = await response.json();
