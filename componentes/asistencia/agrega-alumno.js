@@ -106,4 +106,3 @@ function agregarAlumno(alumno, nombreGrado) {
         alert('Error al agregar alumno: ' + error.message);
     });
 }
-

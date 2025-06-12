@@ -114,7 +114,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
             const thead = document.createElement('thead');
             const trHead = document.createElement('tr');
             
-            ['#', 'Nombre Completo', 'Edad', 'Correo', 'Asistencia'].forEach(texto => {
+            ['#', 'Nombre Completo', 'Edad', 'Correo', 'Asistencia', 'Borrar'].forEach(texto => {
                 const th = document.createElement('th');
                 th.textContent = texto;
                 trHead.appendChild(th);
@@ -123,33 +123,33 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
             thead.appendChild(trHead);
             tabla.appendChild(thead);
             
-            // Crear tbody
+            // Crear los datos 
             const tbody = document.createElement('tbody');
             
             data.data.forEach((alumno, index) => {
                 const tr = document.createElement('tr');
                 
-                // Número
+                // Número de alumno
                 const tdNum = document.createElement('td');
                 tdNum.textContent = index + 1;
                 tr.appendChild(tdNum);
                 
-                // Nombre
+                // Nombre de alumno
                 const tdNombre = document.createElement('td');
                 tdNombre.textContent = alumno.nombre_completo;
                 tr.appendChild(tdNombre);
                 
-                // Edad
+                // Edad de alumno
                 const tdEdad = document.createElement('td');
                 tdEdad.textContent = alumno.edad;
                 tr.appendChild(tdEdad);
                 
-                // Correo
+                // Correo de alumno
                 const tdCorreo = document.createElement('td');
                 tdCorreo.textContent = alumno.correo;
                 tr.appendChild(tdCorreo);
                 
-                // Asistencia
+                // Asistencia de alumno
                 const tdAsistencia = document.createElement('td');
                 const select = document.createElement('select');
                 select.className = 'estado-asistencia';
@@ -166,12 +166,46 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
                 
                 tdAsistencia.appendChild(select);
                 tr.appendChild(tdAsistencia);
+
+                // Botón eliminar alumno
+                const tdEliminar = document.createElement('td');
+                const btnEliminar = document.createElement('button');
+                btnEliminar.textContent = 'Eliminar';
+                btnEliminar.className = 'btn-eliminar';
+
+                btnEliminar.addEventListener('click', async () => {
+                    if (confirm(`¿Seguro que deseas eliminar al alumno "${alumno.nombre_completo}"?`)) {
+                        try {
+                            const response = await fetch(`http://localhost:3000/eliminar-alumno/${alumno.id}`, {
+                            method: 'DELETE'
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(data.error || 'Error al eliminar alumno');
+                        }
+
+                        alert('Alumno eliminado correctamente');
+                        // Recargar la lista actual
+                        mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado);
+                    } catch (error) {
+                        console.error('Error eliminando alumno:', error);
+                        alert(`Error: ${error.message}`);
+                    }
+                }
+            });
+
+            tdEliminar.appendChild(btnEliminar);
+            tr.appendChild(tdEliminar);
+
                 
-                tbody.appendChild(tr);
+            tbody.appendChild(tr);
             });
             
             tabla.appendChild(tbody);
             listaAlumnos.appendChild(tabla);
+
             
             // Botón guardar
             const btnGuardar = document.createElement('button');
@@ -200,6 +234,9 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
             
             listaAlumnos.appendChild(errorContainer);
         });
+
+        
+
     
     contenedor.appendChild(header);
     contenedor.appendChild(listaAlumnos);
