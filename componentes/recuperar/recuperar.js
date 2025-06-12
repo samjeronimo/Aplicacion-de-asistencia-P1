@@ -9,7 +9,6 @@ function cargarRecuperar() {
     cuadro.className = "cuadro-recovery";
     recoveryContainer.appendChild(cuadro);
 
-
     const title = document.createElement('h1');
     title.textContent = "Recuperar Contraseña";
     cuadro.appendChild(title);
@@ -33,39 +32,8 @@ function cargarRecuperar() {
         return group;
     };
 
-    cuadro.appendChild(createInputField("Nombre", "text", "nombre"));
-    cuadro.appendChild(createInputField("Apellido", "text", "apellido"));
-
-    // Contenedor para el campo de "Nueva Contraseña" y el botón de visibilidad
-    const passwordGroup = document.createElement('div');
-    passwordGroup.className = "password-group";
-
-    const nuevaPasswordInput = document.createElement('input');
-    nuevaPasswordInput.type = "password";
-    nuevaPasswordInput.id = "nuevaPassword";
-    nuevaPasswordInput.className = "input-field";
-    passwordGroup.appendChild(nuevaPasswordInput);
-
-    const togglePasswordBtn = document.createElement('button');
-    togglePasswordBtn.textContent = "👁️";
-    togglePasswordBtn.className = "toggle-password-btn";
-    passwordGroup.appendChild(togglePasswordBtn);
-
-    togglePasswordBtn.addEventListener('click', () => {
-        if (nuevaPasswordInput.type === "password") {
-            nuevaPasswordInput.type = "text";
-        } else {
-            nuevaPasswordInput.type = "password";
-        }
-    });
-
-    const passwordLabel = document.createElement('h2');
-    passwordLabel.textContent = "Nueva Contraseña";
-    passwordLabel.className = "input-label";
-    cuadro.appendChild(passwordLabel);
-    cuadro.appendChild(passwordGroup);
-
-    cuadro.appendChild(createInputField("Código de Recuperación", "text", "codigoRecuperacion"));
+    cuadro.appendChild(createInputField("Correo Electrónico", "email", "correo")); // Campo para el correo
+    cuadro.appendChild(createInputField("Código de Recuperación", "text", "codigoRecuperacion")); // Campo para el código
 
     // Botón para enviar código
     const sendCodeBtn = document.createElement('button');
@@ -73,45 +41,71 @@ function cargarRecuperar() {
     sendCodeBtn.textContent = "Enviar Código al Correo";
     cuadro.appendChild(sendCodeBtn);
 
-    // Botones de acción
-    const btnContainer = document.createElement('div');
-    btnContainer.className = "btn-container";
-    cuadro.appendChild(btnContainer);
+    // Botón para recuperar contraseña
+    const recoverPasswordBtn = document.createElement('button');
+    recoverPasswordBtn.className = "btn-recover-password";
+    recoverPasswordBtn.textContent = "Recuperar Contraseña";
+    cuadro.appendChild(recoverPasswordBtn);
 
-    const submitBtn = document.createElement('button');
-    submitBtn.className = "btn-submit";
-    submitBtn.textContent = "Actualizar Contraseña";
-    btnContainer.appendChild(submitBtn);
-
+    // Botón para volver al login
     const backBtn = document.createElement('button');
     backBtn.className = "btn-back";
     backBtn.textContent = "Volver al Login";
-    btnContainer.appendChild(backBtn);
+    cuadro.appendChild(backBtn);
 
     // Event Listeners
-    sendCodeBtn.addEventListener('click', () => {
-        alert("Se ha enviado un código de recuperación a tu correo electrónico");
-    });
-
-    submitBtn.addEventListener('click', async () => {
-        const nombre = document.getElementById('nombre').value.trim();
-        const apellido = document.getElementById('apellido').value.trim();
-        const nuevaPassword = document.getElementById('nuevaPassword').value.trim();
-        const codigo = document.getElementById('codigoRecuperacion').value.trim();
-
-        if (!nombre || !apellido || !nuevaPassword || !codigo) {
-            alert("Por favor complete todos los campos");
+    sendCodeBtn.addEventListener('click', async () => {
+        const correo = document.getElementById('correo').value.trim(); // Obtener el correo ingresado
+        if (!correo) {
+            alert("Por favor ingrese su correo electrónico.");
             return;
         }
 
-        // Aquí iría la lógica para validar el código y actualizar la contraseña
         try {
-            // Simulación de petición al servidor
-            alert("Contraseña actualizada correctamente");
-            cargarLogin(); // Volver al login después de actualizar
+            // Simulación de envío de código al correo
+            await fetch("http://localhost:3000/send-code", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ correo })
+            });
+            alert(`Se ha enviado un código de recuperación al correo: ${correo}`);
+        } catch (error) {
+            console.error("Error al enviar el código:", error);
+            alert("Error al enviar el código de recuperación.");
+        }
+    });
+
+    recoverPasswordBtn.addEventListener('click', async () => {
+        const correo = document.getElementById('correo').value.trim();
+        const codigo = document.getElementById('codigoRecuperacion').value.trim();
+
+        if (!correo || !codigo) {
+            alert("Por favor complete todos los campos.");
+            return;
+        }
+
+        try {
+            // Simulación de validación del código y recuperación de contraseña
+            const response = await fetch("http://localhost:3000/recover-password", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ correo, codigo })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert(`Tu contraseña es: ${data.password}`);
+            } else {
+                alert(data.message); // Mostrar mensaje de error
+            }
         } catch (error) {
             console.error("Error al recuperar contraseña:", error);
-            alert("Error al procesar la solicitud");
+            alert("Error al procesar la solicitud.");
         }
     });
 
