@@ -17,7 +17,6 @@
     overflow: hidden;
     position: relative;
     z-index: 1;
-    margin: 20px;
 }
 
 /* Fondo con imagen */
@@ -112,9 +111,9 @@ body {
 }
 
 .logout-button {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: red;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(252, 25, 25, 0.3);
     padding: 8px 16px;
     font-size: 16px;
     margin-left: auto;
@@ -126,9 +125,26 @@ body {
 }
 
 .logout-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgb(148, 14, 14);
 }
 
+.profesores-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-right: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profesores-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
 
 /* List styles */
 .div-lista {

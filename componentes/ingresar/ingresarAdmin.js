@@ -1,8 +1,8 @@
-import { cargarHeader } from "../header/header.js";
-import { cargarLogin } from "../login/login.js";
+import { cargarHeaderAdmin } from "../header/headerAdmin.js";
+import { cargarLoginAdmin } from "../login/loginAdmin.js";
 
 // ingresarProfe.js
-function cargarFormularioRegistro() {
+function cargarFormularioRegistroAdmin() {
     let registro = document.createElement('div');
     registro.className = "div-registro";
 
@@ -71,22 +71,27 @@ function cargarFormularioRegistro() {
 
     // Evento que maneja el registro de profesor
     btnRegistrar.addEventListener('click', () => {
-        const nombre = nombreInput.value;
-        const email = emailInput.value;
-        const password = passInput.value;
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passInput.value.trim();
+
 
         // Realizar la solicitud POST para registrar al profesor (ver backend)
-        fetch('http://localhost:3000/registrar', {
+        fetch('http://localhost:3000/registrar-admin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nombre, email, password })
+            body: JSON.stringify({ nombre, correo: email, contrasena: password })
+
         })
         .then(response => response.json())
         .then(data => {
             alert(data.message); // Mostrar mensaje de éxito
-            window.location.href = '/';  // Volver al login (o al índice de la app)
+            const DOM = document.querySelector('#root');
+            DOM.innerHTML = "";
+            DOM.appendChild(cargarHeaderAdmin());
+            DOM.appendChild(cargarLoginAdmin());  // Volver al login (o al índice de la app)
         })
         .catch(error => {
             console.error('Error:', error);
@@ -98,8 +103,8 @@ function cargarFormularioRegistro() {
     btnRegresar.addEventListener('click', () => {
         const DOM = document.querySelector('#root');
         DOM.innerHTML = "";
-        DOM.appendChild(cargarHeader());
-        DOM.appendChild(cargarLogin());
+        DOM.appendChild(cargarHeaderAdmin());
+        DOM.appendChild(cargarLoginAdmin());
     });
 
     // Agregar el formulario de registro al DOM
@@ -107,4 +112,4 @@ function cargarFormularioRegistro() {
     document.querySelector('#root').appendChild(registro);
 }
 
-export { cargarFormularioRegistro };
+export { cargarFormularioRegistroAdmin };
