@@ -88,114 +88,363 @@
   background-color: #c0392b;
 }
 
+.btn-carta-gmail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-left: 10px;
+}
 
-/* Estilos para el modal de agregar alumno */
-.modal-agregar-alumno {
+.btn-carta-gmail:hover {
+  background: #f1f1f1;
+}
+
+.icono-carta {
+  width: 20px;
+  height: 20px;
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/new-post.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Modal */
+.modal-carta {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.modal-form-container {
-  background: #fff;
-  padding: 25px;
+.contenido-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contenedor-prendas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.imagen-prenda {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.imagen-prenda:hover {
+  transform: scale(1.05);
+}
+
+.imagen-prenda.seleccionada {
+  border-color: #ff0000;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+
+.contenedor-mensaje textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.btn-enviar {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cerrar-modal {
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.overlay-correo {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.modal-envio-correo {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+}
+.modal-envio-correo textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+}
+.btn-enviar-reporte, .btn-cancelar-reporte {
+    margin-top: 10px;
+    margin-right: 8px;
+}
+
+
+.btn-agregar-header {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 16px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-top: 13px;
+  font-size: 15px;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-agregar-header:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Modal - Fondo oscuro */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Cuadro del formulario */
+.modal-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
   width: 90%;
   max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.modal-form-group {
-  margin-bottom: 15px;
-}
-
-.modal-form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #333;
-}
-
-.modal-form-input {
+/* Estilos del formulario */
+.form-agregar-alumno input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   font-size: 14px;
-  box-sizing: border-box;
+  color: black;
 }
 
-.modal-form-input:focus {
-  border-color: #3498db;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-.modal-btn-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.modal-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+.form-agregar-alumno .btn-guardar,
+.form-agregar-alumno .btn-cancelar {
+  width: 48%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  border: none;
 }
 
-.modal-btn-cancelar {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.modal-btn-cancelar:hover {
-  background-color: #e0e0e0;
-}
-
-.modal-btn-confirmar {
-  background-color: #3498db;
+.form-agregar-alumno .btn-guardar {
+  background-color: #4CAF50;
   color: white;
 }
 
-.modal-btn-confirmar:hover {
-  background-color: #2980b9;
+.form-agregar-alumno .btn-cancelar {
+  background-color: #f44336;
+  color: white;
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 50%;
+  background-color: #f44336;
+  color: white;
 }
 
-/* Validación de errores */
-.modal-error {
-  color: #e74c3c;
-  font-size: 12px;
-  margin-top: 5px;
-  display: none;
+.btn-marcar-todos {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 170px;
+  margin-top: -35px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.modal-form-input.error {
-  border-color: #e74c3c;
+.btn-marcar-todos:hover {
+  background-color: #4cae4c;
 }
 
-/* Versión móvil */
-@media (max-width: 480px) {
-  .modal-form-container {
-      width: 95%;
-      padding: 15px;
-  }
+.btn-marcar-todos-ausentes {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 270px;
+  margin-top: -32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
   
-  .modal-btn {
-      padding: 8px 15px;
-  }
 }
 
+.btn-marcar-todos.ausentes:hover {
+  background-color: #e74c3c;
+}
+
+
+/* Estilos para el nuevo botón y modal */
+.btn-correo-general {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-correo-general:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-fecha-correo {
+  display: flex;
+  align-items: center;
+}
+
+/* Modal de correo general */
+.modal-overlay-correo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-correo-general {
+  background: white;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-correo-titulo {
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.modal-correo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-correo-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.modal-correo-textarea:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.btn-enviar-todos {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-enviar-todos:hover {
+  background-color: #3367d6;
+}
+
+.btn-cancelar-correo {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancelar-correo:hover {
+  background-color: #e0e0e0;
+}
 
 /* --- Versión móvil --- */
 @media (max-width: 768px) {

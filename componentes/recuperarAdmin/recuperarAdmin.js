@@ -1,7 +1,8 @@
-import { cargarLogin } from "../login/login.js";
-import { cargarHeader } from "../header/header.js";
+import { cargarLoginAdmin } from "../login/loginAdmin.js";
+import { cargarHeaderAdmin } from "../header/headerAdmin.js";
 
-function cargarRecuperar() {
+
+function cargarRecuperarAdmin() {
     const recoveryContainer = document.createElement('div');
     recoveryContainer.className = "div-recovery";
 
@@ -107,11 +108,11 @@ function cargarRecuperar() {
     backBtn.addEventListener('click', () => {
         const DOM = document.querySelector('#root'); // Seleccionar el contenedor principal
         DOM.innerHTML = ""; // Limpiar el DOM
-        DOM.appendChild(cargarHeader());
-        DOM.appendChild(cargarLogin()); // Cargar la vista de login
+        DOM.appendChild(cargarHeaderAdmin());
+        DOM.appendChild(cargarLoginAdmin()); // Cargar la vista de login
     });
 
     return recoveryContainer;
 }
 
-export { cargarRecuperar };
+export { cargarRecuperarAdmin };

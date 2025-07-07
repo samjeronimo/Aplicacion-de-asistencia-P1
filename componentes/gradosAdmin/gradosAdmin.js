@@ -1,5 +1,7 @@
-import { mostrarAlumnosParaAsistencia } from "../asistencia/asistencia-alumnos.js";
-import {   mostrarProyecciones } from "../proyecciones/proyecciones-grados.js";
+import { mostrarAlumnosParaAsistenciaAdmin } from "../asistenciaAdmin/asistenciaAdmin.js";
+import { cargarProfesores } from "../profesor/profesor.js";
+import { mostrarProyeccionesAdmin } from "../proyeccionesAdmin/proyeccionesAdmin.js";
+
 
 // Función para verificar si un grado tiene asistencia registrada
 function verificarAsistencia(idGrado, fecha) {
@@ -9,7 +11,7 @@ function verificarAsistencia(idGrado, fecha) {
         .catch(() => false);
 }
 
-function cargarGrados() {
+function cargarGradosAdmin() {
     let grados = document.createElement('div');
     grados.className = "grados-container";
     
@@ -79,7 +81,7 @@ function cargarGrados() {
         });
         
         // Recargar los grados con la nueva fecha
-        cargarGrados();
+        cargarGradosAdmin();
     });
     
     // Build structure
@@ -104,11 +106,23 @@ function cargarGrados() {
 
     header.appendChild(logoutButton);
 
+    let profesoresBtn = document.createElement('button');
+    profesoresBtn.textContent = "👨‍🏫 Profesores";
+    profesoresBtn.className = "profesores-button";
+    profesoresBtn.addEventListener('click', () => {
+        // Redirige a la página de profesores
+        let DOM = document.querySelector('#root');
+        DOM.innerHTML = ''; // Limpiar el contenido actual
+        DOM.appendChild(cargarProfesores());
+    });
+    
+    header.appendChild(profesoresBtn);
+
     // Botón de proyecciones (después del botón de cerrar sesión)
     let proyeccionesButton = document.createElement('button');
     proyeccionesButton.textContent = "📊 Proyecciones";
     proyeccionesButton.className = "proyecciones-button";
-    proyeccionesButton.addEventListener('click', mostrarProyecciones);
+    proyeccionesButton.addEventListener('click', mostrarProyeccionesAdmin);
     
     header.appendChild(proyeccionesButton);
 
@@ -168,7 +182,7 @@ function cargarGrados() {
                             // Grados sin subgrados
                             arrow.textContent = '•';
                             gradoElement.addEventListener('click', () => {
-                                mostrarAlumnosParaAsistencia(grado.id_grado, grado.nombre);
+                                mostrarAlumnosParaAsistenciaAdmin(grado.id_grado, grado.nombre);
                             });
                         }
 
@@ -229,7 +243,7 @@ function cargarGrados() {
 
                             btn.onclick = (e) => {
                                 e.stopPropagation();
-                                mostrarAlumnosParaAsistencia(
+                                mostrarAlumnosParaAsistenciaAdmin(
                                     subgrado.id,
                                     `${grado.nombre} - ${subgrado.nombre}`
                                 );
@@ -282,7 +296,7 @@ function cargarGrados() {
                     btn.textContent = subgrado.nombre;
                     btn.onclick = (e) => {
                         e.stopPropagation();
-                        mostrarAlumnosParaAsistencia(
+                        mostrarAlumnosParaAsistenciaAdmin(
                             subgrado.id,
                             `${gradoElement.querySelector('p').textContent} - ${subgrado.nombre}`
                         );
@@ -308,4 +322,4 @@ function cargarGrados() {
 
 
 
-export {cargarGrados}
+export {cargarGradosAdmin}
