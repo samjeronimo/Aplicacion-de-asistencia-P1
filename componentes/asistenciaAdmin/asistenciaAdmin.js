@@ -1,4 +1,4 @@
-export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = 'especifico') {
+export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrado = 'especifico') {
     const main = document.querySelector('main');
     main.textContent = ''; // Limpiar contenido
     
@@ -30,9 +30,9 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
     btnRegresar.appendChild(textoRegresar);
     
     btnRegresar.addEventListener('click', () => {
-        import('../grados/grados.js').then(module => {
+        import('../gradosAdmin/gradosAdmin.js').then(module => {
             main.textContent = '';
-            main.appendChild(module.cargarGrados());
+            main.appendChild(module.cargarGradosAdmin());
         });
     });
     
@@ -136,7 +136,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
 
             alert('Alumno agregado correctamente');
             overlay.remove();
-            mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado);
+            mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrado);
         } catch (err) {
             alert('Error: ' + err.message);
         }
@@ -336,7 +336,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
                 
                         // 4. Actualizar vista
                         alert('Alumno eliminado');
-                        mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado);
+                        mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrado);
                 
                     } catch (error) {
                         console.error('Error completo:', error);
@@ -435,7 +435,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
               
               try {
                   // Obtener el ID del profesor (ajusta según tu implementación)
-                  const id_profesor = localStorage.getItem('user_id') || 1;
+                  const id_profesor = localStorage.getItem('user_id') || 4;
                   
                   // 1. Registrar el reporte en la base de datos Y enviar correo
                   const response = await fetch('http://localhost:3000/reportes/registrar', {

@@ -1,0 +1,119 @@
+/* Estilo institucional SCL */
+.div-seleccion-scl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-image: url('https://images.vexels.com/media/users/3/166925/raw/29bea4762c52b19c54c867322e54a094-diseno-de-fondo-azul-abstracto.jpg');
+    background-size: cover;
+}
+
+.logo-container {
+    margin-bottom: 1.5rem;
+}
+
+.logo-scl {
+    height: 80px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.titulo-seleccion-scl {
+    font-size: 2.2rem;
+    color: #1a3e72;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.nombre-colegio {
+    color: #d4af37; /* Dorado institucional */
+    font-weight: 700;
+}
+
+.contenedor-seleccion-scl {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem 0;
+}
+
+.opcion-scl {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-top: 4px solid transparent;
+    text-align: center;
+}
+
+.opcion-admin-scl {
+    border-color: #1a3e72; /* Azul institucional */
+}
+
+.opcion-profesor-scl {
+    border-color: #8b0000; /* Rojo oscuro institucional */
+}
+
+.opcion-scl:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.opcion-icono-scl {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.opcion-texto-scl {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a3e72;
+    margin-bottom: 0.5rem;
+}
+
+.opcion-desc-scl {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+}
+
+.footer-scl {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-scl p:first-child {
+    font-weight: 600;
+    color: #1a3e72;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-seleccion-scl {
+        flex-direction: column;
+    }
+    
+    .titulo-seleccion-scl {
+        font-size: 1.8rem;
+    }
+    
+    .logo-scl {
+        height: 60px;
+    }
+}
