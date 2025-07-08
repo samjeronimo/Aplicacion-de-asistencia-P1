@@ -434,7 +434,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
                 }
                 
                 try {
-                  const id_profesor = localStorage.getItem('user_id') || 1;
+                  const id_profesor = localStorage.getItem('user_id') || 4;
                   const correoDestino = alumno.correo; // Usar directamente el correo del alumno
                   
                   // 1. Registrar el reporte en la base de datos Y enviar correo
