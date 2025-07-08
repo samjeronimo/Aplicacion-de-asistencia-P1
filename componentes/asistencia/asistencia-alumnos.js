@@ -425,55 +425,55 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
             btnEnviar.className = 'btn-enviar';
 
             btnEnviar.addEventListener('click', async () => {
-              const mensaje = textarea.value.trim();
-              const prendasSeleccionadas = [...contenedorSuperior.querySelectorAll('.seleccionada')].map(img => img.alt);
-              
-              if (prendasSeleccionadas.length === 0 && !mensaje) {
+                const mensaje = textarea.value.trim();
+                const prendasSeleccionadas = [...contenedorSuperior.querySelectorAll('.seleccionada')].map(img => img.alt);
+                
+                if (prendasSeleccionadas.length === 0 && !mensaje) {
                   alert('Selecciona al menos una prenda o escribe un mensaje');
                   return;
-              }
-              
-              try {
-                  // Obtener el ID del profesor (ajusta según tu implementación)
+                }
+                
+                try {
                   const id_profesor = localStorage.getItem('user_id') || 1;
+                  const correoDestino = alumno.correo; // Usar directamente el correo del alumno
                   
                   // 1. Registrar el reporte en la base de datos Y enviar correo
                   const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/reportes/registrar', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                          id_alumno: alumno.id,
-                          id_profesor: id_profesor,
-                          prendas: prendasSeleccionadas,
-                          mensaje: mensaje,
-                          tipo: 'uniforme' // Asegúrate de incluir el tipo
-                      })
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      id_alumno: alumno.id,
+                      id_profesor: id_profesor,
+                      prendas: prendasSeleccionadas,
+                      mensaje: mensaje,
+                      tipo: 'uniforme',
+                      correo: correoDestino // Asegúrate de incluir el correo aquí
+                    })
                   });
                   
                   const data = await response.json();
                   
                   if (!response.ok) {
-                      throw new Error(data.error || 'Error al registrar y enviar reporte');
+                    throw new Error(data.error || 'Error al registrar y enviar reporte');
                   }
                   
                   // 2. Mostrar feedback al usuario
                   if (data.success) {
-                      alert('✓ Reporte guardado y correo enviado correctamente');
-                      modalCarta.classList.remove('activo');
-                      setTimeout(() => document.body.removeChild(modalCarta), 300);
+                    alert('✓ Reporte guardado y correo enviado correctamente');
+                    modalCarta.classList.remove('activo');
+                    setTimeout(() => document.body.removeChild(modalCarta), 300);
                   }
                   
-              } catch (error) {
+                } catch (error) {
                   console.error('Error completo:', error);
                   
-                  // Manejo específico de errores
                   if (error.message.includes('correo')) {
-                      alert(`Reporte guardado, pero hubo un problema al enviar el correo: ${error.message}`);
+                    alert(`Reporte guardado, pero hubo un problema al enviar el correo: ${error.message}`);
                   } else {
-                      alert(`Error: ${error.message}`);
+                    alert(`Error: ${error.message}`);
                   }
-              }
-          });
+                }
+              });
 
             // Botón de cerrar
             const botonCerrar = document.createElement('button');

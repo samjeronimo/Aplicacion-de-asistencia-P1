@@ -281,9 +281,15 @@
 
     /* Logo más pequeño */
     .cuadro-login .logo {
-        width: 70px;
-        height: 70px;
-        margin: 10px auto;
+        width: 50px; /* Reducir el tamaño del logo */
+        height: 50px;
+        margin: 5px auto;
+    }
+
+    /* Título más pequeño */
+    .cuadro-login h1 {
+        font-size: 1.2rem; /* Reducir el tamaño del título */
+        margin-bottom: 0.5rem;
     }
 
     /* Inputs */
@@ -343,9 +349,15 @@
 
     /* Logo más pequeño */
     .cuadro-login .logo {
-        width: 90px;
-        height: 90px;
+        width: 70px; /* Ajustar el tamaño del logo */
+        height: 70px;
         margin: 10px auto;
+    }
+
+    /* Título ajustado */
+    .cuadro-login h1 {
+        font-size: 1.5rem; /* Ajustar el tamaño del título */
+        margin-bottom: 1rem;
     }
 
     /* Inputs */

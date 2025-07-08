@@ -251,3 +251,97 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
+
+/* --- Estilos específicos para dispositivos móviles (375px de ancho) --- */
+@media (max-width: 375px) {
+    /* Contenedor principal */
+    .grados-container {
+        padding: 10px;
+        justify-content: flex-start; /* Alinear contenido al inicio */
+        align-items: flex-start;
+    }
+
+    .main-container {
+        width: 100%;
+        margin: 10px auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Fondo */
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Header */
+    .app-header {
+        flex-direction: column; /* Cambiar a columna */
+        padding: 15px;
+        text-align: center;
+    }
+
+    .logo-title-container {
+        flex-direction: column; /* Cambiar a columna */
+        gap: 10px;
+    }
+
+    .app-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .app-title {
+        font-size: 1.5rem; /* Reducir tamaño del título */
+    }
+
+    .custom-date-display {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 8px 15px;
+        min-width: auto; /* Ajustar ancho mínimo */
+    }
+
+    .logout-button {
+        font-size: 0.9rem; /* Reducir tamaño del botón */
+        padding: 8px 12px;
+    }
+
+    /* Lista de grados */
+    .div-lista {
+        padding: 15px;
+    }
+
+    .grado-item {
+        margin-bottom: 10px;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .grado-contenido {
+        flex-direction: column; /* Cambiar a columna */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .arrow {
+        font-size: 14px; /* Reducir tamaño del ícono */
+    }
+
+    /* Subgrados */
+    .subgrado-btn {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 10px;
+    }
+
+    /* Botón de proyecciones */
+    .proyecciones-button {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 8px 12px;
+    }
+
+    /* Mensajes de error */
+    .error, .error-msg {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 10px;
+    }
+}
