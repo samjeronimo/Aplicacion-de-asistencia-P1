@@ -87,7 +87,11 @@ function cargarRecuperar() {
         }
     
         try {
+<<<<<<< HEAD
             const response = await fetch("https://backend-app-asistencia-n58n.onrender.com/verificar-codigo", {
+=======
+            const response = await fetch("http://localhost:3000/verificar-codigo", {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ correo, codigoIngresado: codigo })

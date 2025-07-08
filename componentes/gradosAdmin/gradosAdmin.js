@@ -5,7 +5,11 @@ import { mostrarProyeccionesAdmin } from "../proyeccionesAdmin/proyeccionesAdmin
 
 // Función para verificar si un grado tiene asistencia registrada
 function verificarAsistencia(idGrado, fecha) {
+<<<<<<< HEAD
     return fetch(`https://backend-app-asistencia-n58n.onrender.com/verificar-asistencia/${idGrado}/${fecha}`)
+=======
+    return fetch(`http://localhost:3000/verificar-asistencia/${idGrado}/${fecha}`)
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(response => response.json())
         .then(data => data.tieneAsistencia)
         .catch(() => false);
@@ -139,7 +143,11 @@ function cargarGradosAdmin() {
 
     let gradoActivo = null; // Para manejar la visibilidad de los subgrados
     
+<<<<<<< HEAD
         fetch('https://backend-app-asistencia-n58n.onrender.com/grados')
+=======
+        fetch('http://localhost:3000/grados')
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener grados');
             return response.json();
@@ -221,7 +229,11 @@ function cargarGradosAdmin() {
         }
 
         // Cargar subgrados
+<<<<<<< HEAD
         fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/${grado.id_grado}`)
+=======
+        fetch(`http://localhost:3000/grados-especificos/${grado.id_grado}`)
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
             .then(response => response.json())
             .then(subgrados => {
                 const container = document.createElement('div');
@@ -261,7 +273,11 @@ function cargarGradosAdmin() {
     function cargarGradosEspecificos(idGrado, gradoElement) {
         console.log(`Cargando subgrados para grado ID: ${idGrado}`);
     
+<<<<<<< HEAD
         fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/${idGrado}`)
+=======
+        fetch(`http://localhost:3000/grados-especificos/${idGrado}`)
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(response => {
             if (!response.ok) {
                 // Si no hay subgrados, mostrar mensaje apropiado

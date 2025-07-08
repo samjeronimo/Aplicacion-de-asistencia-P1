@@ -132,7 +132,11 @@ function cargarProfesores() {
             }
         
             try {
+<<<<<<< HEAD
                 const res = await fetch('https://backend-app-asistencia-n58n.onrender.com/appi/crear-profesor', {
+=======
+                const res = await fetch('http://localhost:3000/appi/crear-profesor', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
 
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -179,7 +183,11 @@ function cargarProfesores() {
 
 
     // Obtener los profesores del backend
+<<<<<<< HEAD
     fetch('https://backend-app-asistencia-n58n.onrender.com/api/profesores')
+=======
+    fetch('http://localhost:3000/api/profesores')
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(res => res.json())
         .then(data => {
             if (data.length === 0) {
@@ -230,7 +238,11 @@ function cargarProfesores() {
                         return;
                     }
                 
+<<<<<<< HEAD
                     fetch('https://backend-app-asistencia-n58n.onrender.com/api/validar-password', {
+=======
+                    fetch('http://localhost:3000/api/validar-password', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ correo: correoAdmin, contrasena: password })
@@ -239,7 +251,11 @@ function cargarProfesores() {
                     .then(data => {
                         if (data.valid) {
                             // Contraseña correcta, proceder a eliminar profesor
+<<<<<<< HEAD
                             fetch(`https://backend-app-asistencia-n58n.onrender.com/profesores/${id_profesor}`, { method: 'DELETE' })
+=======
+                            fetch(`http://localhost:3000/profesores/${id_profesor}`, { method: 'DELETE' })
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
 
                             .then(res => {
                                 if (res.ok) {

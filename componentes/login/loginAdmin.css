@@ -253,6 +253,7 @@
       left: auto !important;
       transform: translateY(-50%);
     }
+<<<<<<< HEAD
 }
 
 /* --- Estilos específicos para iPhone 12 (390px de ancho) --- */
@@ -378,3 +379,6 @@
         transform: translateY(-50%);
     }
 }
+=======
+  }
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5

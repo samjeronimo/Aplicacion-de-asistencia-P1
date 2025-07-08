@@ -125,7 +125,11 @@ export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrad
         };
 
         try {
+<<<<<<< HEAD
             const res = await fetch('https://backend-app-asistencia-n58n.onrender.com/agregar-alumno', {
+=======
+            const res = await fetch('http://localhost:3000/agregar-alumno', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(nuevoAlumno)
@@ -209,7 +213,11 @@ export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrad
     listaAlumnos.appendChild(loadingMsg);
     
     // Obtener datos
+<<<<<<< HEAD
     const url = `https://backend-app-asistencia-n58n.onrender.com/alumnos-por-grado/${idGrado}?tipo=${tipoGrado}`;
+=======
+    const url = `http://localhost:3000/alumnos-por-grado/${idGrado}?tipo=${tipoGrado}`;
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
     
     fetch(url)
         .then(response => {
@@ -312,7 +320,11 @@ export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrad
                         if (!contrasena) throw new Error('Contraseña requerida');
                 
                         // 2. Verificar credenciales
+<<<<<<< HEAD
                         const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/verificar-contrasena', {
+=======
+                        const response = await fetch('http://localhost:3000/verificar-contrasena', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ nombre: nombreProfesor, contrasena })
@@ -325,7 +337,11 @@ export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrad
                         }
                 
                         // 3. Eliminar alumno
+<<<<<<< HEAD
                         const deleteResponse = await fetch(`https://backend-app-asistencia-n58n.onrender.com/eliminar-alumno/${alumno.id}`, {
+=======
+                        const deleteResponse = await fetch(`http://localhost:3000/eliminar-alumno/${alumno.id}`, {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                             method: 'DELETE'
                         });
                 
@@ -438,7 +454,11 @@ export function mostrarAlumnosParaAsistenciaAdmin(idGrado, nombreGrado, tipoGrad
                   const id_profesor = localStorage.getItem('user_id') || 4;
                   
                   // 1. Registrar el reporte en la base de datos Y enviar correo
+<<<<<<< HEAD
                   const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/reportes/registrar', {
+=======
+                  const response = await fetch('http://localhost:3000/reportes/registrar', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({
@@ -572,7 +592,11 @@ async function guardarAsistencia(idGrado, tipoGrado) {
     }));
 
     try {
+<<<<<<< HEAD
         const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/registrar-asistencia', {
+=======
+        const response = await fetch('http://localhost:3000/registrar-asistencia', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -639,7 +663,11 @@ function mostrarModalCorreoGeneral(alumnos) {
         const listaCorreos = alumnos.map(alumno => alumno.correo);
         
         // Enviamos un solo request con todos los correos
+<<<<<<< HEAD
         const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/enviar-mensaje-general', {
+=======
+        const response = await fetch('http://localhost:3000/enviar-mensaje-general', {
+>>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
