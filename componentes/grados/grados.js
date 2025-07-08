@@ -1,9 +1,11 @@
 import { mostrarAlumnosParaAsistencia } from "../asistencia/asistencia-alumnos.js";
 import {   mostrarProyecciones } from "../proyecciones/proyecciones-grados.js";
 
+const API_BASE = "https://backend-app-asistencia-n58n.onrender.com"; // usa la URL real de tu backend
+
 // Función para verificar si un grado tiene asistencia registrada
 function verificarAsistencia(idGrado, fecha) {
-    return fetch(`http://localhost:3000/verificar-asistencia/${idGrado}/${fecha}`)
+    return fetch(`${API_BASE}/verificar-asistencia/${idGrado}/${fecha}`)
         .then(response => response.json())
         .then(data => data.tieneAsistencia)
         .catch(() => false);
@@ -125,13 +127,13 @@ function cargarGrados() {
 
     let gradoActivo = null; // Para manejar la visibilidad de los subgrados
     
-        fetch('http://localhost:3000/grados')
+        fetch(`${API_BASE}/grados`)
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener grados');
             return response.json();
         })
         .then(data => {
-            if (!Array.isArray(data)) throw new Error('Formato de datos incorrecto');
+            const grados = Array.isArray(data) ? data : data.grados;        
 
             const fechaSeleccionada = document.getElementById('fecha-actual').value;
             const lista = document.querySelector('.div-lista');
@@ -207,7 +209,7 @@ function cargarGrados() {
         }
 
         // Cargar subgrados
-        fetch(`http://localhost:3000/grados-especificos/${grado.id_grado}`)
+        fetch(`${API_BASE}/grados-especificos/${grado.id_grado}`)
             .then(response => response.json())
             .then(subgrados => {
                 const container = document.createElement('div');
@@ -247,7 +249,7 @@ function cargarGrados() {
     function cargarGradosEspecificos(idGrado, gradoElement) {
         console.log(`Cargando subgrados para grado ID: ${idGrado}`);
     
-        fetch(`http://localhost:3000/grados-especificos/${idGrado}`)
+        fetch(`${API_BASE}/grados-especificos/${idGrado}`)
         .then(response => {
             if (!response.ok) {
                 // Si no hay subgrados, mostrar mensaje apropiado

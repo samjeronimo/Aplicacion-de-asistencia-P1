@@ -5,7 +5,7 @@ import { mostrarProyeccionesAdmin } from "../proyeccionesAdmin/proyeccionesAdmin
 
 // Función para verificar si un grado tiene asistencia registrada
 function verificarAsistencia(idGrado, fecha) {
-    return fetch(`http://localhost:3000/verificar-asistencia/${idGrado}/${fecha}`)
+    return fetch(`https://backend-app-asistencia-n58n.onrender.com/verificar-asistencia/${idGrado}/${fecha}`)
         .then(response => response.json())
         .then(data => data.tieneAsistencia)
         .catch(() => false);
@@ -139,7 +139,7 @@ function cargarGradosAdmin() {
 
     let gradoActivo = null; // Para manejar la visibilidad de los subgrados
     
-        fetch('http://localhost:3000/grados')
+        fetch('https://backend-app-asistencia-n58n.onrender.com/grados')
         .then(response => {
             if (!response.ok) throw new Error('Error al obtener grados');
             return response.json();
@@ -221,7 +221,7 @@ function cargarGradosAdmin() {
         }
 
         // Cargar subgrados
-        fetch(`http://localhost:3000/grados-especificos/${grado.id_grado}`)
+        fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/${grado.id_grado}`)
             .then(response => response.json())
             .then(subgrados => {
                 const container = document.createElement('div');
@@ -261,7 +261,7 @@ function cargarGradosAdmin() {
     function cargarGradosEspecificos(idGrado, gradoElement) {
         console.log(`Cargando subgrados para grado ID: ${idGrado}`);
     
-        fetch(`http://localhost:3000/grados-especificos/${idGrado}`)
+        fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/${idGrado}`)
         .then(response => {
             if (!response.ok) {
                 // Si no hay subgrados, mostrar mensaje apropiado

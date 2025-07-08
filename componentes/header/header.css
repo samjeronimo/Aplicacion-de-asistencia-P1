@@ -40,16 +40,60 @@
     box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3); /* Sombra verde */
 }
 
-
-@media (max-width: 768px) {
+/* Estilos generales para dispositivos móviles */
+@media (max-width: 768px) { /* Para iPads y dispositivos más pequeños */
     .header {
-      grid-template-columns: 1fr !important;
-      height: auto !important;
-      padding: 10px !important;
+        grid-template-columns: 1fr; /* Cambiar a una sola columna */
+        height: auto; /* Ajustar la altura automáticamente */
+        padding: 10px; /* Reducir el padding */
+        gap: 10px; /* Reducir el espacio entre elementos */
     }
-  
+
     .header .img-header {
-      width: 60px !important;
-      height: 60px !important;
+        width: 60px; /* Reducir el tamaño de la imagen */
+        height: 60px;
     }
-  }
+
+    .header h1 {
+        font-size: 1.8rem; /* Reducir el tamaño del texto */
+        padding: 5px; /* Reducir el padding interno */
+        height: auto; /* Ajustar la altura automáticamente */
+    }
+}
+
+/* Estilos específicos para iPhone 12 (390px de ancho) */
+@media (max-width: 390px) { /* Para iPhone 12 y dispositivos más pequeños */
+    .header {
+        padding: 5px; /* Reducir aún más el padding */
+        gap: 5px; /* Reducir el espacio entre elementos */
+    }
+
+    .header .img-header {
+        width: 50px; /* Reducir aún más el tamaño de la imagen */
+        height: 50px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem; /* Reducir el tamaño del texto */
+        padding: 5px; /* Reducir el padding interno */
+    }
+}
+
+/* Estilos específicos para iPads (768px de ancho) */
+@media (min-width: 390px) and (max-width: 768px) { /* Para iPads */
+    .header {
+        grid-template-columns: 1fr; /* Cambiar a una sola columna */
+        padding: 15px; /* Ajustar el padding */
+        gap: 15px; /* Ajustar el espacio entre elementos */
+    }
+
+    .header .img-header {
+        width: 70px; /* Ajustar el tamaño de la imagen */
+        height: 70px;
+    }
+
+    .header h1 {
+        font-size: 2rem; /* Ajustar el tamaño del texto */
+        padding: 10px; /* Ajustar el padding interno */
+    }
+}

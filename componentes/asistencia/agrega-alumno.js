@@ -86,7 +86,7 @@ function crearGrupoFormulario(id, labelText, inputType) {
 }
 
 function agregarAlumno(alumno, nombreGrado) {
-    fetch('http://localhost:3000/agregar-alumno', {
+    fetch('https://backend-app-asistencia-n58n.onrender.com/agregar-alumno', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

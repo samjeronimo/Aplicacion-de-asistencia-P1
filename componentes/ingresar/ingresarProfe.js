@@ -76,7 +76,7 @@ function cargarFormularioRegistro() {
         const password = passInput.value;
 
         // Realizar la solicitud POST para registrar al profesor (ver backend)
-        fetch('http://localhost:3000/registrar', {
+        fetch('https://backend-app-asistencia-n58n.onrender.com/registrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
