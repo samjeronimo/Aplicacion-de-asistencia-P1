@@ -132,7 +132,7 @@ function cargarProfesores() {
             }
         
             try {
-                const res = await fetch('http://localhost:3000/appi/crear-profesor', {
+                const res = await fetch('https://backend-app-asistencia-n58n.onrender.com/appi/crear-profesor', {
 
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -179,7 +179,7 @@ function cargarProfesores() {
 
 
     // Obtener los profesores del backend
-    fetch('http://localhost:3000/api/profesores')
+    fetch('https://backend-app-asistencia-n58n.onrender.com/api/profesores')
         .then(res => res.json())
         .then(data => {
             if (data.length === 0) {
@@ -230,7 +230,7 @@ function cargarProfesores() {
                         return;
                     }
                 
-                    fetch('http://localhost:3000/api/validar-password', {
+                    fetch('https://backend-app-asistencia-n58n.onrender.com/api/validar-password', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ correo: correoAdmin, contrasena: password })
@@ -239,7 +239,7 @@ function cargarProfesores() {
                     .then(data => {
                         if (data.valid) {
                             // Contraseña correcta, proceder a eliminar profesor
-                            fetch(`http://localhost:3000/profesores/${id_profesor}`, { method: 'DELETE' })
+                            fetch(`https://backend-app-asistencia-n58n.onrender.com/profesores/${id_profesor}`, { method: 'DELETE' })
 
                             .then(res => {
                                 if (res.ok) {

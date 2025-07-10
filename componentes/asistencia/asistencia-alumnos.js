@@ -125,7 +125,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
         };
 
         try {
-            const res = await fetch('http://localhost:3000/agregar-alumno', {
+            const res = await fetch('https://backend-app-asistencia-n58n.onrender.com/agregar-alumno', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(nuevoAlumno)
@@ -209,7 +209,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
     listaAlumnos.appendChild(loadingMsg);
     
     // Obtener datos
-    const url = `http://localhost:3000/alumnos-por-grado/${idGrado}?tipo=${tipoGrado}`;
+    const url = `https://backend-app-asistencia-n58n.onrender.com/alumnos-por-grado/${idGrado}?tipo=${tipoGrado}`;
     
     fetch(url)
         .then(response => {
@@ -312,7 +312,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
                         if (!contrasena) throw new Error('Contraseña requerida');
                 
                         // 2. Verificar credenciales
-                        const response = await fetch('http://localhost:3000/verificar-contrasena', {
+                        const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/verificar-contrasena', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ nombre: nombreProfesor, contrasena })
@@ -325,7 +325,7 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
                         }
                 
                         // 3. Eliminar alumno
-                        const deleteResponse = await fetch(`http://localhost:3000/eliminar-alumno/${alumno.id}`, {
+                        const deleteResponse = await fetch(`https://backend-app-asistencia-n58n.onrender.com/eliminar-alumno/${alumno.id}`, {
                             method: 'DELETE'
                         });
                 
@@ -425,55 +425,55 @@ export function mostrarAlumnosParaAsistencia(idGrado, nombreGrado, tipoGrado = '
             btnEnviar.className = 'btn-enviar';
 
             btnEnviar.addEventListener('click', async () => {
-              const mensaje = textarea.value.trim();
-              const prendasSeleccionadas = [...contenedorSuperior.querySelectorAll('.seleccionada')].map(img => img.alt);
-              
-              if (prendasSeleccionadas.length === 0 && !mensaje) {
+                const mensaje = textarea.value.trim();
+                const prendasSeleccionadas = [...contenedorSuperior.querySelectorAll('.seleccionada')].map(img => img.alt);
+                
+                if (prendasSeleccionadas.length === 0 && !mensaje) {
                   alert('Selecciona al menos una prenda o escribe un mensaje');
                   return;
-              }
-              
-              try {
-                  // Obtener el ID del profesor (ajusta según tu implementación)
-                  const id_profesor = localStorage.getItem('user_id') || 1;
+                }
+                
+                try {
+                  const id_profesor = localStorage.getItem('user_id') || 4;
+                  const correoDestino = alumno.correo; // Usar directamente el correo del alumno
                   
                   // 1. Registrar el reporte en la base de datos Y enviar correo
-                  const response = await fetch('http://localhost:3000/reportes/registrar', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                          id_alumno: alumno.id,
-                          id_profesor: id_profesor,
-                          prendas: prendasSeleccionadas,
-                          mensaje: mensaje,
-                          tipo: 'uniforme' // Asegúrate de incluir el tipo
-                      })
+                  const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/reportes/registrar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      id_alumno: alumno.id,
+                      id_profesor: id_profesor,
+                      prendas: prendasSeleccionadas,
+                      mensaje: mensaje,
+                      tipo: 'uniforme',
+                      correo: correoDestino // Asegúrate de incluir el correo aquí
+                    })
                   });
                   
                   const data = await response.json();
                   
                   if (!response.ok) {
-                      throw new Error(data.error || 'Error al registrar y enviar reporte');
+                    throw new Error(data.error || 'Error al registrar y enviar reporte');
                   }
                   
                   // 2. Mostrar feedback al usuario
                   if (data.success) {
-                      alert('✓ Reporte guardado y correo enviado correctamente');
-                      modalCarta.classList.remove('activo');
-                      setTimeout(() => document.body.removeChild(modalCarta), 300);
+                    alert('✓ Reporte guardado y correo enviado correctamente');
+                    modalCarta.classList.remove('activo');
+                    setTimeout(() => document.body.removeChild(modalCarta), 300);
                   }
                   
-              } catch (error) {
+                } catch (error) {
                   console.error('Error completo:', error);
                   
-                  // Manejo específico de errores
                   if (error.message.includes('correo')) {
-                      alert(`Reporte guardado, pero hubo un problema al enviar el correo: ${error.message}`);
+                    alert(`Reporte guardado, pero hubo un problema al enviar el correo: ${error.message}`);
                   } else {
-                      alert(`Error: ${error.message}`);
+                    alert(`Error: ${error.message}`);
                   }
-              }
-          });
+                }
+              });
 
             // Botón de cerrar
             const botonCerrar = document.createElement('button');
@@ -572,7 +572,7 @@ async function guardarAsistencia(idGrado, tipoGrado) {
     }));
 
     try {
-        const response = await fetch('http://localhost:3000/registrar-asistencia', {
+        const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/registrar-asistencia', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -639,7 +639,7 @@ function mostrarModalCorreoGeneral(alumnos) {
         const listaCorreos = alumnos.map(alumno => alumno.correo);
         
         // Enviamos un solo request con todos los correos
-        const response = await fetch('http://localhost:3000/enviar-mensaje-general', {
+        const response = await fetch('https://backend-app-asistencia-n58n.onrender.com/enviar-mensaje-general', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

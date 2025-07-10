@@ -73,7 +73,7 @@ function cargarLoginAdmin() {
         }
     
         try {
-            const response = await fetch("http://localhost:3000/login-admin", {
+            const response = await fetch("https://backend-app-asistencia-n58n.onrender.com/login-admin", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -98,7 +98,6 @@ function cargarLoginAdmin() {
     });
     
     
-
     let togglePasswordBtn = document.createElement('button');
     togglePasswordBtn.textContent = "👁️";
     togglePasswordBtn.className = "toggle-password-btn";

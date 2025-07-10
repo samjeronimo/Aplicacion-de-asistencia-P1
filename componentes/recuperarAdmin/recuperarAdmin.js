@@ -64,7 +64,7 @@ function cargarRecuperarAdmin() {
 
         try {
             // Simulación de envío de código al correo
-            await fetch("http://localhost:3000/send-code", {
+            await fetch("https://backend-app-asistencia-n58n.onrender.com/send-code", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -88,7 +88,7 @@ function cargarRecuperarAdmin() {
         }
     
         try {
-            const response = await fetch("http://localhost:3000/verificar-codigo", {
+            const response = await fetch("https://backend-app-asistencia-n58n.onrender.com/verificar-codigo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ correo, codigoIngresado: codigo })

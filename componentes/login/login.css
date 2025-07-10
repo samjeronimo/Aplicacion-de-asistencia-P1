@@ -253,4 +253,140 @@
       left: auto !important;
       transform: translateY(-50%);
     }
-  }
+}
+
+/* --- Estilos específicos para iPhone 12 (390px de ancho) --- */
+@media (max-width: 390px) {
+    .div-login {
+        height: 100vh; /* Ocupa toda la pantalla */
+        padding: 0;
+    }
+
+    /* Ajuste de imagen de fondo */
+    .div-login img {
+        object-fit: cover; /* Cubre todo el espacio sin deformarse */
+        height: 100%;
+    }
+
+    /* Cuadro del login */
+    .cuadro-login {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        grid-template-rows: auto auto auto auto auto; /* Filas ajustables */
+    }
+
+    /* Logo más pequeño */
+    .cuadro-login .logo {
+        width: 50px; /* Reducir el tamaño del logo */
+        height: 50px;
+        margin: 5px auto;
+    }
+
+    /* Título más pequeño */
+    .cuadro-login h1 {
+        font-size: 1.2rem; /* Reducir el tamaño del título */
+        margin-bottom: 0.5rem;
+    }
+
+    /* Inputs */
+    .div-user, .div-pass {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    /* Botones en columna */
+    .btn-cuadro {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Botones individuales */
+    .btn-cuadro .btn-ingresar,
+    .btn-cuadro .btn-registrar,
+    .btn-cuadro .btn-recuperar {
+        width: 100%;
+        font-size: 1rem;
+        height: 3.5rem;
+    }
+
+    /* Posición del ícono de contraseña */
+    .toggle-password-btn {
+        right: 10%;
+        top: auto;
+        left: auto;
+        transform: translateY(-50%);
+    }
+}
+
+/* --- Estilos específicos para iPads (768px de ancho) --- */
+@media (min-width: 391px) and (max-width: 768px) {
+    .div-login {
+        height: 100vh;
+        padding: 0;
+    }
+
+    /* Ajuste de imagen de fondo */
+    .div-login img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    /* Cuadro del login */
+    .cuadro-login {
+        width: 80%;
+        height: auto;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+    /* Logo más pequeño */
+    .cuadro-login .logo {
+        width: 70px; /* Ajustar el tamaño del logo */
+        height: 70px;
+        margin: 10px auto;
+    }
+
+    /* Título ajustado */
+    .cuadro-login h1 {
+        font-size: 1.5rem; /* Ajustar el tamaño del título */
+        margin-bottom: 1rem;
+    }
+
+    /* Inputs */
+    .div-user, .div-pass {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+    }
+
+    /* Botones en columna */
+    .btn-cuadro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Botones individuales */
+    .btn-cuadro .btn-ingresar,
+    .btn-cuadro .btn-registrar,
+    .btn-cuadro .btn-recuperar {
+        width: 100%;
+        font-size: 1.2rem;
+        height: 4rem;
+    }
+
+    /* Posición del ícono de contraseña */
+    .toggle-password-btn {
+        right: 15%;
+        top: auto;
+        left: auto;
+        transform: translateY(-50%);
+    }
+}

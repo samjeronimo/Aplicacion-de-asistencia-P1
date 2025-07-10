@@ -77,7 +77,7 @@ function cargarFormularioRegistroAdmin() {
 
 
         // Realizar la solicitud POST para registrar al profesor (ver backend)
-        fetch('http://localhost:3000/registrar-admin', {
+        fetch('https://backend-app-asistencia-n58n.onrender.com/registrar-admin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

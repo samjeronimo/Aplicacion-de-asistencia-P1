@@ -73,7 +73,7 @@ function cargarLogin() {
         }
     
         try {
-            const response = await fetch("http://localhost:3000/login", {
+            const response = await fetch("https://backend-app-asistencia-n58n.onrender.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -84,23 +84,18 @@ function cargarLogin() {
             const data = await response.json();
     
             if (response.ok) {
-    
-                // Obtener el contenedor donde se mostrarán los grados
                 const DOM = document.querySelector('#root');
-                
-                // Limpiar el DOM (si es necesario)
                 DOM.innerHTML = "";
-    
-                // Agregar la vista de grados
                 DOM.appendChild(cargarGrados());  
             } else {
-                alert(data.message);  // Mostrar mensaje de error
+                alert(data.message);
             }
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
             alert("Error en el servidor.");
         }
     });
+    
     
 
     let togglePasswordBtn = document.createElement('button');

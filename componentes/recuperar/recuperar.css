@@ -149,7 +149,89 @@
 
 .btn-back {
     background-color: #e74c3c;
-    color: white;
+    color: white;/* Estilos generales para dispositivos móviles */
+    @media (max-width: 768px) { /* Para iPads y dispositivos más pequeños */
+        .cuadro-recovery {
+            width: 90%; /* Ajustar el ancho del cuadro */
+            padding: 20px; /* Reducir el padding */
+            margin: 20px auto; /* Centrar el cuadro */
+        }
+    
+        .input-field {
+            font-size: 0.9rem; /* Reducir el tamaño de fuente */
+            padding: 10px; /* Reducir el padding interno */
+        }
+    
+        .btn-container {
+            gap: 5px; /* Reducir el espacio entre botones */
+        }
+    
+        .btn-send-code,
+        .btn-submit,
+        .btn-back,
+        .btn-recover-password {
+            font-size: 0.9rem; /* Reducir el tamaño de fuente de los botones */
+            padding: 10px; /* Reducir el padding interno */
+        }
+    }
+    
+    /* Estilos específicos para iPhone 12 (390px de ancho) */
+    @media (max-width: 390px) { /* Para iPhone 12 y dispositivos más pequeños */
+        .cuadro-recovery {
+            width: 95%; /* Ajustar el ancho del cuadro */
+            padding: 15px; /* Reducir el padding */
+        }
+    
+        .input-field {
+            font-size: 0.8rem; /* Reducir aún más el tamaño de fuente */
+            padding: 8px; /* Reducir el padding interno */
+        }
+    
+        .btn-send-code,
+        .btn-submit,
+        .btn-back,
+        .btn-recover-password {
+            font-size: 0.8rem; /* Reducir el tamaño de fuente de los botones */
+            padding: 8px; /* Reducir el padding interno */
+        }
+    
+        h1 {
+            font-size: 1.5rem; /* Reducir el tamaño del título */
+        }
+    
+        h2 {
+            font-size: 1rem; /* Reducir el tamaño de los subtítulos */
+        }
+    }
+    
+    /* Estilos específicos para iPads (768px de ancho) */
+    @media (min-width: 390px) and (max-width: 768px) { /* Para iPads */
+        .cuadro-recovery {
+            width: 80%; /* Ajustar el ancho del cuadro */
+            padding: 25px; /* Ajustar el padding */
+        }
+    
+        .input-field {
+            font-size: 1rem; /* Tamaño de fuente adecuado para iPads */
+            padding: 12px; /* Ajustar el padding interno */
+        }
+    
+        .btn-send-code,
+        .btn-submit,
+        .btn-back,
+        .btn-recover-password {
+            font-size: 1rem; /* Tamaño de fuente adecuado para iPads */
+            padding: 12px; /* Ajustar el padding interno */
+        }
+    
+        h1 {
+            font-size: 2rem; /* Ajustar el tamaño del título */
+        }
+    
+        h2 {
+            font-size: 1.2rem; /* Ajustar el tamaño de los subtítulos */
+        }
+    }
     margin-top: 10px; /* Separación adicional */
 }
 
@@ -201,3 +283,86 @@
     }
 }
 
+/* Estilos generales para dispositivos móviles */
+@media (max-width: 768px) { /* Para iPads y dispositivos más pequeños */
+    .cuadro-recovery {
+        width: 90%; /* Ajustar el ancho del cuadro */
+        padding: 20px; /* Reducir el padding */
+        margin: 20px auto; /* Centrar el cuadro */
+    }
+
+    .input-field {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente */
+        padding: 10px; /* Reducir el padding interno */
+    }
+
+    .btn-container {
+        gap: 5px; /* Reducir el espacio entre botones */
+    }
+
+    .btn-send-code,
+    .btn-submit,
+    .btn-back,
+    .btn-recover-password {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente de los botones */
+        padding: 10px; /* Reducir el padding interno */
+    }
+}
+
+/* Estilos específicos para iPhone 12 (390px de ancho) */
+@media (max-width: 390px) { /* Para iPhone 12 y dispositivos más pequeños */
+    .cuadro-recovery {
+        width: 95%; /* Ajustar el ancho del cuadro */
+        padding: 15px; /* Reducir el padding */
+    }
+
+    .input-field {
+        font-size: 0.8rem; /* Reducir aún más el tamaño de fuente */
+        padding: 8px; /* Reducir el padding interno */
+    }
+
+    .btn-send-code,
+    .btn-submit,
+    .btn-back,
+    .btn-recover-password {
+        font-size: 0.8rem; /* Reducir el tamaño de fuente de los botones */
+        padding: 8px; /* Reducir el padding interno */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Reducir el tamaño del título */
+    }
+
+    h2 {
+        font-size: 1rem; /* Reducir el tamaño de los subtítulos */
+    }
+}
+
+/* Estilos específicos para iPads (768px de ancho) */
+@media (min-width: 390px) and (max-width: 768px) { /* Para iPads */
+    .cuadro-recovery {
+        width: 80%; /* Ajustar el ancho del cuadro */
+        padding: 25px; /* Ajustar el padding */
+    }
+
+    .input-field {
+        font-size: 1rem; /* Tamaño de fuente adecuado para iPads */
+        padding: 12px; /* Ajustar el padding interno */
+    }
+
+    .btn-send-code,
+    .btn-submit,
+    .btn-back,
+    .btn-recover-password {
+        font-size: 1rem; /* Tamaño de fuente adecuado para iPads */
+        padding: 12px; /* Ajustar el padding interno */
+    }
+
+    h1 {
+        font-size: 2rem; /* Ajustar el tamaño del título */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Ajustar el tamaño de los subtítulos */
+    }
+}
