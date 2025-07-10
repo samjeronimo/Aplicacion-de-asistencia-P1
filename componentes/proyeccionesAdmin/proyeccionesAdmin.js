@@ -118,11 +118,7 @@ export function mostrarProyeccionesAdmin() {
 
 // Funciones para manejar las proyecciones
 function mostrarGraficaGrados() {
-<<<<<<< HEAD
     fetch('https://backend-app-asistencia-n58n.onrender.com/asistencia/grados')
-=======
-    fetch('http://localhost:3000/asistencia/grados')
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(res => {
             if (!res.ok) throw new Error(`Error HTTP! estado: ${res.status}`);
             return res.json();
@@ -240,11 +236,7 @@ function mostrarGraficaAlumnosGrado() {
     // Mostrar loader
     const loader = mostrarLoader();
     
-<<<<<<< HEAD
     fetch('https://backend-app-asistencia-n58n.onrender.com/grados/lista')
-=======
-    fetch('http://localhost:3000/grados/lista')
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(async (res) => {
             if (!res.ok) {
                 const errorText = await res.text();
@@ -319,11 +311,7 @@ function mostrarGraficaAlumnosGrado() {
 function cargarSubgrados(idGrado, nombreGrado) {
     const loader = mostrarLoader();
     
-<<<<<<< HEAD
     fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/lista/${idGrado}`)
-=======
-    fetch(`http://localhost:3000/grados-especificos/lista/${idGrado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(async (res) => {
             // NUEVO: Primero verificar el estado de la respuesta
             if (!res.ok) {
@@ -382,11 +370,7 @@ function cargarSubgrados(idGrado, nombreGrado) {
                 
                 if (idSubgrado === 'todos') {
                     // Cargar todos los alumnos del grado - NUEVO: manejo mejorado de errores
-<<<<<<< HEAD
                     fetch(`https://backend-app-asistencia-n58n.onrender.com/asistencia/alumnos/${idGrado}`)
-=======
-                    fetch(`http://localhost:3000/asistencia/alumnos/${idGrado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                         .then(async (res) => {
                             if (!res.ok) {
                                 const errorText = await res.text();
@@ -408,11 +392,7 @@ function cargarSubgrados(idGrado, nombreGrado) {
                         });
                 } else {
                     // Cargar alumnos del subgrado específico - NUEVO: manejo mejorado de errores
-<<<<<<< HEAD
                     fetch(`https://backend-app-asistencia-n58n.onrender.com/asistencia/alumnos-subgrado/${idSubgrado}`)
-=======
-                    fetch(`http://localhost:3000/asistencia/alumnos-subgrado/${idSubgrado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                         .then(async (res) => {
                             if (!res.ok) {
                                 const errorText = await res.text();
@@ -630,11 +610,7 @@ function mostrarGraficaConDatos(data, titulo) {
 function mostrarGraficaAsistenciaAlumno() {
     const loader = mostrarLoader();
     
-<<<<<<< HEAD
     fetch('https://backend-app-asistencia-n58n.onrender.com/grados/lista')
-=======
-    fetch('http://localhost:3000/grados/lista')
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(async (res) => {
             if (!res.ok) {
                 const errorText = await res.text();
@@ -728,11 +704,7 @@ function mostrarGraficaAsistenciaAlumno() {
 function cargarSubgradosParaAlumno(idGrado, nombreGrado) {
     const loader = mostrarLoader();
     
-<<<<<<< HEAD
     fetch(`https://backend-app-asistencia-n58n.onrender.com/grados-especificos/lista/${idGrado}`)
-=======
-    fetch(`http://localhost:3000/grados-especificos/lista/${idGrado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(async (res) => {
             if (!res.ok) {
                 const errorText = await res.text();
@@ -817,11 +789,7 @@ function cargarSubgradosParaAlumno(idGrado, nombreGrado) {
 function mostrarBuscadorAlumno(idGrado, idSubgrado, nombreGrado, nombreSubgrado) {
     const loader = mostrarLoader();
     
-<<<<<<< HEAD
     fetch(`https://backend-app-asistencia-n58n.onrender.com/asistencia/alumnos-subgrado/${idSubgrado}`)
-=======
-    fetch(`http://localhost:3000/asistencia/alumnos-subgrado/${idSubgrado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(async (res) => {
             if (!res.ok) {
                 const errorText = await res.text();
@@ -981,11 +949,7 @@ async function cargarAsistenciaAlumno(idAlumno, nombreAlumno, nombreGrado, nombr
     
     try {
         // URL con parámetros para evitar caché
-<<<<<<< HEAD
         const url = new URL(`https://backend-app-asistencia-n58n.onrender.com/asistencia/alumno/${idAlumno}`);
-=======
-        const url = new URL(`http://localhost:3000/asistencia/alumno/${idAlumno}`);
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         url.searchParams.append('_', Date.now());
         
         const response = await fetch(url, {

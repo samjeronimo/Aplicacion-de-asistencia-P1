@@ -73,11 +73,7 @@ function cargarLoginAdmin() {
         }
     
         try {
-<<<<<<< HEAD
             const response = await fetch("https://backend-app-asistencia-n58n.onrender.com/login-admin", {
-=======
-            const response = await fetch("http://localhost:3000/login-admin", {
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -93,11 +89,7 @@ function cargarLoginAdmin() {
                 DOM.innerHTML = "";
                 DOM.appendChild(cargarGradosAdmin());  
             } else {
-<<<<<<< HEAD
-                alert(data.message);
-=======
                 alert(data.message);  // Mostrar mensaje de error
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
             }
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
@@ -106,11 +98,6 @@ function cargarLoginAdmin() {
     });
     
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
-
     let togglePasswordBtn = document.createElement('button');
     togglePasswordBtn.textContent = "👁️";
     togglePasswordBtn.className = "toggle-password-btn";

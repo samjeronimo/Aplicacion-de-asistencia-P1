@@ -1,17 +1,11 @@
 import { mostrarAlumnosParaAsistencia } from "../asistencia/asistencia-alumnos.js";
 import {   mostrarProyecciones } from "../proyecciones/proyecciones-grados.js";
 
-<<<<<<< HEAD
 const API_BASE = "https://backend-app-asistencia-n58n.onrender.com"; // usa la URL real de tu backend
 
 // Función para verificar si un grado tiene asistencia registrada
 function verificarAsistencia(idGrado, fecha) {
     return fetch(`${API_BASE}/verificar-asistencia/${idGrado}/${fecha}`)
-=======
-// Función para verificar si un grado tiene asistencia registrada
-function verificarAsistencia(idGrado, fecha) {
-    return fetch(`http://localhost:3000/verificar-asistencia/${idGrado}/${fecha}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
         .then(response => response.json())
         .then(data => data.tieneAsistencia)
         .catch(() => false);
@@ -139,11 +133,7 @@ function cargarGrados() {
             return response.json();
         })
         .then(data => {
-<<<<<<< HEAD
             const grados = Array.isArray(data) ? data : data.grados;        
-=======
-            if (!Array.isArray(data)) throw new Error('Formato de datos incorrecto');
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
 
             const fechaSeleccionada = document.getElementById('fecha-actual').value;
             const lista = document.querySelector('.div-lista');
@@ -219,11 +209,7 @@ function cargarGrados() {
         }
 
         // Cargar subgrados
-<<<<<<< HEAD
         fetch(`${API_BASE}/grados-especificos/${grado.id_grado}`)
-=======
-        fetch(`http://localhost:3000/grados-especificos/${grado.id_grado}`)
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
             .then(response => response.json())
             .then(subgrados => {
                 const container = document.createElement('div');

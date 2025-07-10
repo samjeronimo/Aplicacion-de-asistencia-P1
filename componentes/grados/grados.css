@@ -250,7 +250,6 @@ body {
 .proyecciones-button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
-<<<<<<< HEAD
 }
 
 /* --- Estilos específicos para dispositivos móviles (375px de ancho) --- */
@@ -345,6 +344,4 @@ body {
         font-size: 0.9rem; /* Reducir tamaño del texto */
         padding: 10px;
     }
-=======
->>>>>>> a68d10cbcc0001fb6b67c88d19af82a238dbfda5
 }
